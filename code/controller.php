@@ -11,15 +11,6 @@ $height = trim($_POST["height"]); // altura
 $weight = trim($_POST["weight"]); // peso
 $evolution = trim($_POST["evolution"]);
 
-/*
-  echo $number;
-  echo $name;
-  echo $region;
-  echo $type;
-  echo $height; // altura
-  echo $weight; // peso
-  echo $evolution;
- */
 
 // CREANDO POKEMONS
 echo 'CREANDO POKEMON';
@@ -31,50 +22,39 @@ $pokeCreado4 = createPokemon(new Pokemon("003", "Charmander", "Jotho", "Fuego", 
 echo '<br>=========<br>';
 echo 'AGREGANDO POKEMON';
 // AGREGANDO POKEMON AL ARRAY (POKEDEX)
-addPokemon($pokeCreado, $content);
-addPokemon($pokeCreado2, $content);
-addPokemon($pokeCreado3, $content);
-addPokemon($pokeCreado4, $content); // pokemon con datos iguales al 3, no se guarda
+addPokemon($pokeCreado, $pokedex);
+addPokemon($pokeCreado2, $pokedex);
+addPokemon($pokeCreado3, $pokedex);
+addPokemon($pokeCreado4, $pokedex); // pokemon con datos iguales al 3, no se guarda
 
 echo '<br>=========<br>';
 
 // MOSTRAR POKEDEX 
 echo 'MOSTRANDO POKEDEX';
-showPokedex($content);
+showPokedex($pokedex);
 
 echo '<br>=========<br>';
-echo 'BUSCANDO POKEMON';
+echo 'BUSCANDO POKEMON<br>';
 // BUSCAR POKEMON
 $namePokemon1 = "Bulbasaur";
 $namePokemon2 = "Ivysaur";
 $namePokemon3 = "Charmander";
 $namePokemon4 = "mi gato";
 
-$numero = seachPokemon($namePokemon1, $content);
+$numero = seachPokemon($namePokemon1, $pokedex);
 echo "<br>Retorno de busqueda: " . $numero;
 
 echo '<br>=========<br>';
 
 // MONSTRAR UN POKEMON
 echo 'MOSTRANDO UN POKEMON<br>';
-showPokemon($namePokemon2, $content);
+showPokemon($namePokemon2, $pokedex);
 
 echo '<br>=========<br>';
 
 // BORRAR UN POKEMON
 echo 'BORRANDO POKEMON Y MOSTRANDO POKEDEX<br>';
-deletePokemon($namePokemon2, $content);
+deletePokemon($namePokemon2, $pokedex);
 echo '<br>';
-showPokedex($content);
-
-
-
-/*  
-
-
-
-
-
-*/
-
+showPokedex($pokedex);
 

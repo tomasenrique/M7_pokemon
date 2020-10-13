@@ -94,7 +94,7 @@ and open the template in the editor.
             </table>
         </form>
 
- 
+
         <p><a href="pruebas.php">PRUEBAS</a></p>
 
     </body>

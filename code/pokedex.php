@@ -1,6 +1,6 @@
 <?php
 
-$content = array(); // Para guardar los pokemon
+$pokedex = array(); // Para guardar los pokemon
 
 const FIELDS = array("NUMBER", "NAME", "REGION", "TYPE", "HEIGHT", "WEIGHT", "EVOLUTION");
 
@@ -20,21 +20,7 @@ function createPokemon(Pokemon $pokemon) {
 // Mostrar pokémon.
 
 function showPokemon($namePokemon, &$contentPokedex) {
-    $rest = 0;
-    $locatedPokemon;
-
-    foreach ($contentPokedex as $pokemon) {
-        foreach ($pokemon as $clave => $valor) {
-            if ($namePokemon === $valor) {
-                $locatedPokemon = $pokemon; // almacena el array asociativo con la info del pokemon encontrado             
-                $rest = 1;
-            }
-        }
-    }
-
-    foreach ($locatedPokemon as $clave => $valor) {
-        echo "$clave : $valor <br>";
-    }
+    seachPokemon($namePokemon, $contentPokedex);
 }
 
 //==============================================================================
@@ -65,17 +51,23 @@ function seachPokemon($namePokemon, &$contentPokedex) {
     $indice = 0;
     $rest = 0;
     $retorno;
+    $locatedPokemon; // Para almacenar el pokemon localizado
 
     foreach ($contentPokedex as $pokemon) {
         foreach ($pokemon as $clave => $valor) {
             if ($namePokemon === $valor) {
-                //echo "<br>El pokemon '$namePokemon' si existe y su indice es: $indice";
+                $locatedPokemon = $pokemon; // almacena el array asociativo con la info del pokemon encontrado  
                 $retorno = $indice;
                 $rest = 1;
             }
         }
         $indice++;
     }
+
+    foreach ($locatedPokemon as $clave => $valor) {
+        echo "$clave : $valor <br>";
+    }
+
     if ($rest == 0) {
         return -1;
     } else {
@@ -117,10 +109,3 @@ function deletePokemon($namePokemon, &$contentPokedex) {
 }
 
 //==============================================================================
-
-/*
-
-
-
-
- */
